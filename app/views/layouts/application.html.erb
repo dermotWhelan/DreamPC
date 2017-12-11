@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= yield(:title) %> | DreamPC </title>
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
-</head>
-<body>
+  <head>
+    <title><%= yield(:title) %> | DreamPC</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-<%= yield %>
-
+  <body>
+    <%= render 'layouts/header'%>
+    <div class="container">
+    <%= yield %>
+  </div>
+    <%= render 'layouts/footer'%>
+  
 </body>
 </html>
