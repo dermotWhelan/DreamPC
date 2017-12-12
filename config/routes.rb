@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  #devise_for :users
   get 'cart/index'
 
   resources :items
@@ -18,6 +20,8 @@ Rails.application.routes.draw do
   get '/cart/:id', to: 'cart#add'
   
   get '/cart/remove/:id', to: 'cart#remove'
+  
+  root :to => 'site#home'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

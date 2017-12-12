@@ -34,6 +34,6 @@
   <strong>Quantity:</strong>
   <%= @item.quantity %>
 </p>
-
+<a href="/cart/<%= @item.id %>"> Add To Cart</a>
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
