@@ -4,7 +4,7 @@
 <br>
 
 <table class="catalog">
-  <% @items.each do |item| %>
+  <% @item.each do |item| %>
   <thead>
       <tr>
         <td>
@@ -21,9 +21,12 @@
             <%= number_to_currency(item.price, :unit => "€") %>
           </div>
       <div class="links">
-        
-        <%= link_to 'Edit', edit_item_path(item) %>
-        <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% if session[:login] ==1 %>
+          <%= link_to 'Edit', edit_item_path(item) %>
+          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%else%>
+          <a href="/cart/<%= item.id %>">Add to Cart></a>
+          <%end%>
         </div>
         </td>
       </tr>
@@ -31,5 +34,7 @@
 </table>
 
 <br>
-
-<%= link_to 'New Item', new_item_path %>
+<% if session[:login]==1%>
+<p>
+  <%= link_to 'New Item', new_item_path %></p>
+<%end%>
