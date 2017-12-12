@@ -20,10 +20,10 @@
       <% if user_signed_in? %>
       
       <div>Signed in as.. <%= current_user.email %>(<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>)</div> 
-      
+      <%= link_to 'Edit Profile', edit_user_registration_path %>
       <% else %>
       
-      <%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign In', new_user_session_path %>
+      <%= link_to 'Become a Member', new_user_registration_path %> or <%= link_to 'Sign In', new_user_session_path %>
       
       <%end%>
       
@@ -31,7 +31,9 @@
       </div>
     </div>
     <div id='searchbox'>
-      <h2 class="BoxHeaders">Search Catalog</h2>
+      <h2 class="BoxHeaders">
+      <%= link_to 'New Category', new_category_path %>
+      </h2>
       </div>
     </div>
     <%= render 'layouts/footer'%>
